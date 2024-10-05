@@ -1,9 +1,8 @@
-package find_your_house.user;
+package find_your_house.entity.user;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter

@@ -1,4 +1,4 @@
-package find_your_house.user;
+package find_your_house.entity.user;
 
 import find_your_house.role.Role;
 import jakarta.persistence.*;
@@ -32,6 +32,10 @@ public class User implements UserDetails, Principal {
     @Column(unique = true)
     private String email;
     private String password;
+   /* private Integer phoneNumber;
+    private String address;
+    private Integer cin;*/
+
     private boolean accountLocked;
     private boolean enable;
     @ManyToMany(fetch = FetchType.EAGER)

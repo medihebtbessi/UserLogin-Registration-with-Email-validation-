@@ -1,4 +1,4 @@
-package find_your_house.user;
+package find_your_house.entity.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

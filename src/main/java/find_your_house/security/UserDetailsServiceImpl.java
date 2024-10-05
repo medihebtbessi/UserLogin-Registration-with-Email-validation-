@@ -1,6 +1,6 @@
 package find_your_house.security;
 
-import find_your_house.user.UserRepository;
+import find_your_house.entity.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
