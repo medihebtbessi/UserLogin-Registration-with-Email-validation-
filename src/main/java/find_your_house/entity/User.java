@@ -1,4 +1,4 @@
-package find_your_house.entity.user;
+package find_your_house.entity;
 
 import find_your_house.role.Role;
 import jakarta.persistence.*;
@@ -21,10 +21,11 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "_user")
+@Inheritance(strategy = InheritanceType.JOINED)
 @EntityListeners(AutoCloseable.class)
 public class User implements UserDetails, Principal {
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String firstname;
     private String lastname;
@@ -32,9 +33,9 @@ public class User implements UserDetails, Principal {
     @Column(unique = true)
     private String email;
     private String password;
-   /* private Integer phoneNumber;
+    private Integer phoneNumber;
     private String address;
-    private Integer cin;*/
+    private Integer cin;
 
     private boolean accountLocked;
     private boolean enable;

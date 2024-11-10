@@ -1,7 +1,7 @@
 package find_your_house.role;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import find_your_house.entity.user.User;
+import find_your_house.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;

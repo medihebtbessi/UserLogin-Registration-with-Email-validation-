@@ -1,4 +1,4 @@
-package find_your_house.entity.model;
+package find_your_house.entity;
 
 public enum TypeAbonnement {
     GOLD,

@@ -1,4 +1,4 @@
-package find_your_house.entity.user;
+package find_your_house.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
