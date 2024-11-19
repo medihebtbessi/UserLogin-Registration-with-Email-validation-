@@ -1,5 +1,6 @@
 package find_your_house.entity;
 
+import find_your_house.dto.ReservationDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,11 +25,15 @@ public class Offre {
     private String address;
     private String description;
     private Date periodeDisponibilite;
-    @Lob
-    private List<byte[]> battenteFiscale;
+    @OneToMany(mappedBy = "offre")
+    private List<Image> image;
     @ManyToOne
     private Agent agent;
     @ManyToOne
     private Client client;
+    @OneToMany()
+    private List<Reservation> reservations;
+
+
 
 }

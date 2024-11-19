@@ -11,14 +11,12 @@ public class Agent extends User {
 
     @Lob
     private byte[] battenteFiscale;
-    @Enumerated(EnumType.STRING)
-    private Roles role;
     @OneToMany(mappedBy = "agent")
     private List<Messagerie> messageries;
     @OneToMany(mappedBy = "agent")
     private List<Offre> offres;
-    @ManyToOne()
-    private Abonnement abonnement;
+    @OneToOne()
+    private AbonnementVendu abonnementVendu;
     @ManyToMany(mappedBy = "agents")
     private List<Notification> notification;
     @OneToMany(mappedBy = "agent")

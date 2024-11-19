@@ -1,6 +1,6 @@
 package find_your_house.auth;
 
-import jakarta.persistence.Column;
+import find_your_house.entity.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -8,8 +8,6 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -30,4 +28,5 @@ public class RegistrationRequest {
     @NotBlank(message = "Password is mandatory")
     @Size(min = 8,message = "Password should be 8 characters long minimum")
     private String password;
+    private Role role;
 }

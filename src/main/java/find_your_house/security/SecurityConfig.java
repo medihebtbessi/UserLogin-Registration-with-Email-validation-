@@ -34,6 +34,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests(req->
                         req.requestMatchers(
                                 "/auth/**",
+                                        "/offre/**",
+                                        "/abonnementVendu/**",
+                                "/ws/**",
+                                "/image/**",
+                                "/reservation/**",
+                                "/abonnement/**",
+                                "/payment/**",
                                 "/v2/api-docs",
                                         "/v3/api-docs",
                                         "/v3/api-docs/**",
@@ -46,7 +53,10 @@ public class SecurityConfig {
                                 "/swagger-ui.html",
                                 "http://localhost:8090/api/v1/swagger-ui/index.html"
                         ).permitAll()
+                                //.requestMatchers("/offre/**").hasRole("AGENT")
                                 .anyRequest()
+
+
                                     .authenticated()
                 )
                 .sessionManagement(session->

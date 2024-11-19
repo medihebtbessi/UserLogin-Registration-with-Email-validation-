@@ -1,6 +1,5 @@
 package find_your_house.entity;
 
-import find_your_house.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -12,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 
 @Getter
 @Setter
@@ -39,8 +38,8 @@ public class User implements UserDetails, Principal {
 
     private boolean accountLocked;
     private boolean enable;
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Role> roles;
+    @OneToOne(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
+    private Role roles;
     @CreatedDate
     @Column(nullable = false,updatable = false)
     private LocalDate createdDate;
@@ -56,11 +55,7 @@ public class User implements UserDetails, Principal {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles.
-                stream(
-                )
-                .map(r->new SimpleGrantedAuthority(r.getName()))
-                .toList();
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_"+this.roles.getRoleType()));
     }
 
     @Override

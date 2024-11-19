@@ -13,6 +13,11 @@ spring:
         format_sql: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
+  batch:
+   jdbc:
+    initialize-schema: always
+   job:
+      enabled: false
   mail:
     host: localhost
     port: 25

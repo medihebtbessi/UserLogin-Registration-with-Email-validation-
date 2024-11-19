@@ -10,3 +10,8 @@ server:
   servlet:
     context-path: /api/v1/
 
+paypal:
+  client-id: AWjLfqzeVVwubjnOMXYSUcVMGthooAhcz6bmoeLAyhuGvRr5zn6-lmcvHVpZAZh4zqwMGHXf2OY71pLV
+  client-secret: ECnYmzQWPEELvwTvxWyoor0-v8MfDccaO73jNWIu5Vd21OwcuYbDx1HtovEvMBo8hjS3ZA045qs-4SH0
+  mode: sandbox #use sandbox for testing and 'live ' for Production
+

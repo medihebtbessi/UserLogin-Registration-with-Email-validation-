@@ -1,5 +1,6 @@
 package find_your_house.entity;
 
+import find_your_house.dto.ReservationDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,4 +26,8 @@ public class Reservation {
     private Agent agent;
     @ManyToOne
     private Administrateur administrateur;
+    public static ReservationDto reservationToReservationDto(Reservation reservation){
+        ReservationDto reservationDto=new ReservationDto(reservation.getIdReservationn(),reservation.getDateDebut(),reservation.getDateFin(),reservation.getModePaiement());
+        return reservationDto;
+    }
 }
