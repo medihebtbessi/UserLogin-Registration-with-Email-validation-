@@ -1,0 +1,71 @@
+<div class="card mb-3 shadow-sm" style="border-radius: 10px; overflow: hidden;">
+    
+    <div class="card-img-container" style="overflow: hidden; height: 250px;">
+        <img 
+            src="assets/1300x600-maisons-pierre-lemag-quel-type-maison-choisir-couv.jpg" 
+            class="card-img-top" 
+            alt="image" 
+            style="object-fit: cover; width: 100%; height: 100%;">
+    </div>
+
+   
+    <div class="card-body">
+        <h5 class="card-title text-primary font-weight-bold" style="font-size: 1.5rem;">{{offre.nom}}</h5>
+        <p class="card-text text-muted" style="font-size: 0.9rem;">{{offre.description}}</p>
+        <p class="card-text">
+            <i class="bi bi-geo-alt text-danger"></i> 
+            <span class="text-secondary">{{offre.address}}</span>
+        </p>
+        <p class="card-text">
+            <i class="bi bi-cash-coin text-success"></i> 
+            <span class="text-dark font-weight-bold">{{offre.prix}} DT</span>
+        </p>
+
+       
+        <div class="form-group mb-3">
+            <label for="dateDebut" class="text-secondary font-weight-bold" style="font-size: 0.85rem;">
+                Date debut:
+            </label>
+            <input 
+                type="date" 
+                id="dateDebut" 
+                class="form-control border-secondary" 
+                value="{{offre.dateDebut}}"  readonly/>
+        </div>
+
+
+        <div class="form-group mb-3">
+            <label for="dateFin" class="text-secondary font-weight-bold" style="font-size: 0.85rem;">
+                Date Fin:
+            </label>
+            <input 
+                type="date" 
+                id="dateFin" 
+                class="form-control border-secondary" 
+                value="{{offre.dateFin}}"  readonly/>
+        </div>
+
+        
+        <div class="reservations-section mt-3">
+            <h6 class="text-secondary font-weight-bold" style="font-size: 1rem;">Reservations:</h6>
+            <div *ngIf="offre.reservations.length==0">
+                <p style="color: red; margin-left: 40%;">Pas de reservation pour cette offre</p>
+            </div>
+            <div *ngIf="offre.reservations.length!=0">
+                <div *ngFor="let res of offre.reservations" class="reservation-item">
+                    <p class="card-text text-muted">
+                        <i class="bi bi-calendar-check text-primary"></i> 
+                        {{res}} 
+                    </p>
+                </div>
+
+            </div>
+            
+        </div>
+
+       
+        <div class="text-center mt-3">
+            <button class="btn btn-primary btn-sm px-4" style="border-radius: 20px;">Reserve Now</button>
+        </div>
+    </div>
+</div>

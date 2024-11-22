@@ -1,0 +1,49 @@
+/* Formulaire général */
+.bg-light-custom {
+    background: #f8f9fa; /* Fond gris clair */
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Titres */
+h3 {
+    font-weight: bold;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Champs du formulaire */
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.25);
+}
+
+/* Boutons */
+.btn {
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 5px 15px rgba(0, 86, 179, 0.3);
+}
+
+/* Image d'aperçu */
+.img-thumbnail {
+    border: 1px solid #ddd;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Étiquettes */
+.form-label {
+    font-weight: bold;
+    color: #495057;
+}

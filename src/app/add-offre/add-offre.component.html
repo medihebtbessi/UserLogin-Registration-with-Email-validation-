@@ -1,0 +1,46 @@
+<form [formGroup]="offreForm" (ngSubmit)="addOffre()" class="p-4 rounded shadow bg-light-custom">
+  <h3 class="text-center text-primary mb-4">Créer une Offre</h3>
+
+  <div class="mb-3">
+      <label for="nom" class="form-label fw-bold">Nom</label>
+      <input type="text" id="nom" class="form-control" formControlName="nom" placeholder="Entrez le nom de l'offre" />
+  </div>
+
+  <div class="mb-3">
+      <label for="prix" class="form-label fw-bold">Prix (DT)</label>
+      <input type="number" id="prix" class="form-control" formControlName="prix" placeholder="Entrez le prix" />
+  </div>
+
+  <div class="mb-3">
+      <label for="address" class="form-label fw-bold">Adresse</label>
+      <input type="text" id="address" class="form-control" formControlName="address" placeholder="Entrez l'adresse" />
+  </div>
+
+  <div class="mb-3">
+      <label for="description" class="form-label fw-bold">Description</label>
+      <textarea id="description" class="form-control" formControlName="description" placeholder="Entrez une description"></textarea>
+  </div>
+
+  <div class="mb-3">
+      <label for="dateDebut" class="form-label fw-bold">Date Debut</label>
+      <input type="date" id="dateDebut" class="form-control" formControlName="dateDebut" />
+  </div>
+  <div class="mb-3">
+    <label for="dateFin" class="form-label fw-bold">Date Fin</label>
+    <input type="date" id="dateFin" class="form-control" formControlName="dateFin" />
+</div>
+
+
+  <div class="mb-3 text-center">
+      <img [src]="" alt="Aperçu de l'image" class="img-thumbnail mb-2" style="width: 500px; height: 300px;" />
+  </div>
+
+  <div class="mb-3">
+      <label for="image" class="form-label fw-bold">Image</label>
+      <input type="file" id="image" name="logo" class="form-control" />
+  </div>
+
+  <div class="text-center">
+      <button type="submit" class="btn btn-primary px-4 py-2" [disabled]="offreForm.invalid">Soumettre</button>
+  </div>
+</form>

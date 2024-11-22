@@ -1,0 +1,58 @@
+<form class="d-flex">
+  <input
+      class="form-control me-2"
+      type="search"
+      name="searchAdd"
+      placeholder="Search"
+      aria-label="Search"
+      [(ngModel)]="searchAdd"
+      >
+</form>
+<div class="import-container">
+  <label class="custom-file-label">
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      class="custom-file-input"
+      id="fileInput"
+    />
+    <span id="fileName">Choisir un fichier à importer</span>
+  </label>
+  <button class="btn btn-success custom-button" (click)="importOffre()">Import Offres From File</button>
+</div>
+
+
+<div class="mt-4">
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let offre of offres | SearchOffre : searchAdd ">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="\assets\1300x600-maisons-pierre-lemag-quel-type-maison-choisir-couv.jpg" class="card-img-top rounded-top" alt="{{offre.nom}}" />
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{offre.nom}}</h5>
+            
+            <p class="card-text">
+              <i class="bi bi-geo-alt-fill text-danger me-2"></i>{{offre.address}}
+            </p>
+            <p class="card-text fw-bold">
+              <i class="bi bi-currency-dollar text-success me-2"></i>{{offre.prix}} DT
+            </p>
+          </div>
+          <div class="card-footer bg-white border-0 d-flex justify-content-between">
+            <button type="button" class="btn btn-outline-primary btn-sm"  routerLink="/detail-offre/{{offre.idOffre}}">
+              <i class="bi bi-eye-fill me-1"></i> Détails
+            </button>
+           
+            <a class="btn btn-outline-secondary btn-sm" routerLink="/update-offre/{{offre.idOffre}}">
+              <i class="bi bi-pencil-fill me-1"></i> Edit
+            </a>
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="confirmDelete(offre.idOffre)">
+              <i class="bi bi-trash-fill me-1"></i> Delete
+            </button>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

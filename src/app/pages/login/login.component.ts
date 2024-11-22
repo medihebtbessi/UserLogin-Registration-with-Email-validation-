@@ -3,6 +3,7 @@ import { AuthenticationRequest } from '../../services/models';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/services';
 import { TokenService } from '../../services/token/token.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   constructor(
     private router:Router,
     private authService:AuthenticationService,
-    private tokenService:TokenService
+    private tokenService:TokenService,private toastrService:ToastrService
   ){}
 register() {
   this.router.navigate(['register'])
@@ -27,6 +28,8 @@ login() {
     next:(res)=>{
       this.tokenService.token=res.token as string;
       this.router.navigate(['login']);
+      this.toastrService.success("sign in with sucess");
+      
     },
     error:(err)=>{
       console.log(err);
@@ -35,7 +38,9 @@ login() {
       }else{
         this.errorMsg.push(err.error.errorMsg);
       }
+      this.toastrService.error("check you data");
     }
+
   });
 }
 

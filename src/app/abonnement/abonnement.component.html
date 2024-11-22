@@ -1,0 +1,119 @@
+<div class="container mt-5">
+
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-success shadow-sm" (click)="showDialog()" style="font-size: 1rem;">
+      <i class="fa-solid fa-plus"></i> Add
+    </button>
+  </div>
+
+
+  <div class="row g-4">
+    <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let abonnement of abonnements">
+      <div class="card text-center shadow-sm h-100" style="background-color: rgb(239, 239, 255);">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h2 class="card-title text-primary">{{ abonnement.typeAbonnement | uppercase }}</h2>
+          <h6 class="text-dark">Prix : {{ abonnement.prixMoi }} €</h6>
+          <div class="form-group mb-3">
+            <label for="startDate" class="text-secondary font-weight-bold">Date Début:</label>
+            <input type="date" id="startDate" class="form-control border-secondary" [value]="abonnement.startDate" readonly />
+          </div>
+          <div class="form-group mb-3">
+            <label for="endDate" class="text-secondary font-weight-bold">Date Fin:</label>
+            <input type="date" id="endDate" class="form-control border-secondary" [value]="abonnement.endDate" readonly />
+          </div>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-primary shadow-sm"  (click)="getAbonnementById(abonnement.idAbonnement)">
+              <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+            <button class="btn btn-danger shadow-sm" (click)="confirmDelete(abonnement.idAbonnement)">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p-dialog header="Add Abonnement" [(visible)]="visible" [modal]="true" [style]="{ width: '30rem' }">
+    <form [formGroup]="abonnemenrForm">
+      <div class="form-group mb-3">
+        <label for="typeAbonnement" class="font-weight-bold">Type Abonnement:</label>
+        <input type="text" id="typeAbonnement" pInputText class="form-control" formControlName="typeAbonnement" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="prixMoi" class="font-weight-bold">Prix par Mois (€):</label>
+        <input type="number" id="prixMoi" pInputText class="form-control" formControlName="prixMoi" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="startDate" class="font-weight-bold">Date Début:</label>
+        <input type="date" id="startDate" pInputText class="form-control" formControlName="startDate" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="endDate" class="font-weight-bold">Date Fin:</label>
+        <input type="date" id="endDate" pInputText class="form-control" formControlName="endDate" />
+      </div>
+      <div class="d-flex justify-content-end gap-2">
+        <button type="button" pButton label="Cancel" class="btn btn-secondary" (click)="visible = false"></button>
+        <button type="submit" pButton label="Save" class="btn btn-primary" (click)="addAbonnement()"></button>
+      </div>
+    </form>
+  </p-dialog>
+
+  <!--________________________________________________________________________________-->
+  <div class="card flex justify-content-center">
+    <p-confirmDialog #cd>
+        <ng-template pTemplate="headless" let-message>
+            <div class="flex flex-column align-items-center p-5 surface-overlay border-round">
+                <div class="border-circle bg-primary inline-flex justify-content-center align-items-center h-6rem w-6rem">
+                    <i class="pi pi-question text-5xl"></i>
+                </div>
+                <span class="font-bold text-2xl block mb-2 mt-4">
+                    {{ message.header }}
+                </span>
+                <p class="mb-0">{{ message.message }}</p>
+                <div class="flex align-items-center gap-2 mt-4">
+                    <button 
+                        pButton 
+                        label="Save" 
+                        (click)="cd.accept()" 
+                        class="w-8rem">
+                    </button>
+                    <button 
+                        pButton 
+                        label="Cancel"
+                        (click)="cd.reject()" 
+                        class="p-button-outlined w-8rem ">
+                    </button>
+                </div>
+            </div>
+        </ng-template>
+    </p-confirmDialog>
+    </div>  
+
+    <!--________________________________________________________________________________-->
+    <p-dialog header="Edit Abonnement" [(visible)]="visibleEdit" [modal]="true" [style]="{ width: '30rem' }">
+      <form [formGroup]="abonnemenrForm">
+        <div class="form-group mb-3">
+          <label for="typeAbonnement" class="font-weight-bold">Type Abonnement:</label>
+          <input type="text" id="typeAbonnement" pInputText class="form-control" formControlName="typeAbonnement" value="{{abonnement?.typeAbonnement}}" />
+        </div>
+        <div class="form-group mb-3">
+          <label for="prixMoi" class="font-weight-bold">Prix par Mois (€):</label>
+          <input type="number" id="prixMoi" pInputText class="form-control" formControlName="prixMoi" value="{{abonnement?.prixMoi}}" />
+        </div>
+        <div class="form-group mb-3">
+          <label for="startDate" class="font-weight-bold">Date Début:</label>
+          <input type="date" id="startDate" pInputText class="form-control" formControlName="startDate" value="{{abonnement?.startDate}}"/>
+        </div>
+        <div class="form-group mb-3">
+          <label for="endDate" class="font-weight-bold">Date Fin:</label>
+          <input type="date" id="endDate" pInputText class="form-control" formControlName="endDate" value="{{abonnement?.endDate}}"/>
+        </div>
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" pButton label="Cancel" class="btn btn-secondary" (click)="visibleEdit = false"></button>
+          <button type="submit" pButton label="Save" class="btn btn-primary" (click)="submitForm()"></button>
+        </div>
+      </form>
+    </p-dialog>
+  

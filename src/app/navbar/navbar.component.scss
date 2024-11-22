@@ -1,0 +1,49 @@
+/* Custom light background */
+.bg-light-custom {
+    background: #f8f9fa; /* Light gray for subtle contrast */
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Navbar brand styling */
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+/* Navbar links */
+.nav-link {
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #0056b3 !important; /* Subtle blue hover */
+    text-shadow: 0px 0px 3px rgba(0, 86, 179, 0.5);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+    background: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Search input */
+
+
+/* Search button */
+.btn-outline-primary {
+    border-radius: 25px;
+    border: 1px solid #0056b3;
+    color: #0056b3;
+}
+
+.btn-outline-primary:hover {
+    background: #0056b3;
+    color: #fff;
+}
